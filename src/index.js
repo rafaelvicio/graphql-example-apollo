@@ -34,7 +34,10 @@ const resolvers = {
     }
   },
   Mutation: {
-    createUser()
+    createUser: async (_, data) => {
+      const user = await User.create(data);
+      return user;
+    }
   }
 };
 
